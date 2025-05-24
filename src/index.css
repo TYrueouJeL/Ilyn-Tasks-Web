@@ -1,3 +1,4 @@
 @import "tailwindcss";
 @import "./style/TaskCard.css";
 @import "./style/TaskDetails.css";
+@import "./style/App.css";

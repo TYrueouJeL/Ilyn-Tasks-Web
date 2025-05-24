@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import Home from "./routes/Home.jsx";
+import Task, { loader as taskLoader } from "./routes/Task.jsx";
 
 const router = createBrowserRouter([
     {
@@ -13,6 +14,11 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home />,
+            },
+            {
+                path: "/task/:id",
+                element: <Task />,
+                loader: taskLoader,
             }
         ]
     },

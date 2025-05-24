@@ -4,7 +4,7 @@ export default function SearchForm({ search, onSearch }) {
     }
 
     return (
-        <form className="flex justify-center gap-4 my-4">
+        <form className={"mb-4"}>
             <input
                 type="text"
                 name="name"
