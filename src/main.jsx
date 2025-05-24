@@ -5,6 +5,7 @@ import App from "./App.jsx";
 import "./index.css";
 import Home from "./routes/Home.jsx";
 import Task, { loader as taskLoader } from "./routes/Task.jsx";
+import Category, { loader as categoryLoader } from "./routes/Category.jsx";
 
 const router = createBrowserRouter([
     {
@@ -19,6 +20,11 @@ const router = createBrowserRouter([
                 path: "/task/:id",
                 element: <Task />,
                 loader: taskLoader,
+            },
+            {
+                path: "/category/:id",
+                element: <Category />,
+                loader: categoryLoader,
             }
         ]
     },
