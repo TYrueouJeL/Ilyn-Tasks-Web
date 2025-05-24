@@ -6,40 +6,36 @@ const ApiUrl = import.meta.env.VITE_API_URL;
 
 export default function Home() {
     const [tasks, setTasks] = useState([]);
-//    const [search, setSearch] = useState({ title: '' });
+    const [search, setSearch] = useState({ title: '' });
 
     useEffect(() => {
-        fetch(`${ApiUrl}/tasks`)
+        fetch(`${ApiUrl}/api/tasks`)
             .then(response => response.json())
-            .then(data => {
-                if (Array.isArray(data)) {
-                    setTasks(data);
-                } else if (Array.isArray(data.member)) {
-                    setTasks(data.member);
-                } else if (data.tasks && Array.isArray(data.tasks)) {
-                    setTasks(data.tasks);
-                } else {
-                    console.error('Format de données inattendu:', data);
-                    setTasks([]);
-                }
-            })
+            .then(data => {setTasks(data.member);})
             .catch(error => console.error('Error fetching tasks:', error));
     }, []);
 
     console.log(tasks);
 
-//    const filteredTasks = tasks ? tasks.filter(task => {
-//        const title = task.title?.toLowerCase() || '';
-//        const searchTitle = search.title.toLowerCase();
-//        return title.includes(searchTitle);
-//    }) : [];
+    const filteredTasks = tasks.filter(task => {
+        const title = task.title.toLowerCase();
+        const searchTitle = search.title.toLowerCase();
+        return title.includes(searchTitle);
+    });
 
-    const tasksToComplete = tasks.filter(task => !task.completed);
+    const finishedTasks = filteredTasks.filter(task => task.completed === true);
+    const unfinishedTasks = filteredTasks.filter(task => task.completed === false);
+    const failedTasks = filteredTasks.filter(task => new Date(task.dueDate) < new Date() && task.completed === false);
 
     return (
         <>
-            <h1>{tasksToComplete.length} tâches restantes</h1>
-            <TaskList tasks={tasks} />
+            <SearchForm search={search} onSearch={formData => setSearch(formData)} />
+            <div className={'flex gap-4 items-center mb-4'}>
+                <h1>{finishedTasks.length} Tâche(s) terminée(s)</h1>
+                <h1>{unfinishedTasks.length} Tâche(s) en cours</h1>
+                <h1>{failedTasks.length} Tâche(s) ratée(s)</h1>
+            </div>
+            <TaskList tasks={filteredTasks} />
         </>
     );
 }

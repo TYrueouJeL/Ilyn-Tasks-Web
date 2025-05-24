@@ -1,0 +1,19 @@
+.card-button {
+    @apply flex items-center gap-4 p-2 border rounded-lg;
+}
+
+.card-button:hover {
+    @apply bg-gray-100;
+}
+
+.card-button--completed {
+    @apply border-green-500;
+}
+
+.card-button--pending {
+    @apply border-yellow-500;
+}
+
+.card-button--failed {
+    @apply border-red-500;
+}
