@@ -1,4 +1,5 @@
 import {Link} from "react-router";
+import { FaRegFolderOpen } from "react-icons/fa";
 
 export default function CategoryCard({ category }) {
     return (
@@ -12,6 +13,8 @@ export default function CategoryCard({ category }) {
             <div className="flex flex-col">
                 <h2>{category.name}</h2>
             </div>
+
+            <FaRegFolderOpen className="text-black ml-auto" />
         </article>
     </Link>
     );
