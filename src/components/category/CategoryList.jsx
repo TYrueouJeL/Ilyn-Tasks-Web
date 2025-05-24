@@ -11,6 +11,10 @@ export default function CategoryList({categories}) {
         return name.includes(searchName);
     });
 
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+    }
+
     const cards = filteredCategories.map(category => <CategoryCard key={category.id} category={category} />);
 
     return (
@@ -18,7 +22,13 @@ export default function CategoryList({categories}) {
             <div className="flex items-center justify-between mb-4">
                 <h1 className="text-2xl font-bold mb-4">Liste des catégories</h1>
 
-                <SearchForm search={search} onSearch={formData => setSearch(formData)} placeholderContent="catégories" />
+                <SearchForm
+                    search={search}
+                    onSearch={formData => setSearch(formData)}
+                    placeholderContent="catégories"
+                    onSubmit={handleFormSubmit}
+                    searchChamp="name"
+                />
             </div>
 
             <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 my-4 ml-2 mr-2">

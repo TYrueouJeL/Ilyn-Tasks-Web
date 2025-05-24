@@ -11,6 +11,10 @@ export default function TaskList({tasks}) {
         return title.includes(searchTitle);
     });
 
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+    }
+
     const cards = filteredTasks.map(task => <TaskCard key={task.id} task={task} />);
 
     const finishedTasks = filteredTasks.filter(task => task.completed === true);
@@ -22,7 +26,13 @@ export default function TaskList({tasks}) {
             <div className="flex items-center justify-between mb-4">
                 <h1 className={"title"}>Liste des tâches</h1>
 
-                <SearchForm search={search} onSearch={formData => setSearch(formData)} placeholderContent="tâches" />
+                <SearchForm
+                    search={search}
+                    onSearch={formData => setSearch(formData)}
+                    placeholderContent="tâches"
+                    onSubmit={handleFormSubmit}
+                    searchChamp="title"
+                />
             </div>
 
             <div className={'flex gap-4 items-center mb-4'}>

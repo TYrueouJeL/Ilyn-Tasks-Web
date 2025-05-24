@@ -6,6 +6,7 @@ import "./index.css";
 import Home from "./routes/Home.jsx";
 import Task, { loader as taskLoader } from "./routes/Task.jsx";
 import Category, { loader as categoryLoader } from "./routes/Category.jsx";
+import User, { loader as userLoader } from "./routes/User.jsx";
 
 const router = createBrowserRouter([
     {
@@ -25,6 +26,11 @@ const router = createBrowserRouter([
                 path: "/category/:id",
                 element: <Category />,
                 loader: categoryLoader,
+            },
+            {
+                path: "user/:id",
+                element: <User />,
+                loader: userLoader,
             }
         ]
     },
