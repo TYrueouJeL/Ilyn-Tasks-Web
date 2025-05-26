@@ -7,7 +7,7 @@ export async function loader({ params }) {
     const categoryResponse = await fetch(`${ApiUrl}/api/categories/${params.id}`);
     const category = await categoryResponse.json();
 
-    const userResponse = await fetch(`${ApiUrl}${category.user}`);
+    const userResponse = await fetch(`${ApiUrl}${category.users}`);
     const user = await userResponse.json();
 
     return { category, user };

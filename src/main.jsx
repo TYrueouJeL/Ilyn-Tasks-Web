@@ -7,6 +7,7 @@ import Home from "./routes/Home.jsx";
 import Task, { loader as taskLoader } from "./routes/Task.jsx";
 import Category, { loader as categoryLoader } from "./routes/Category.jsx";
 import User, { loader as userLoader } from "./routes/User.jsx";
+import Priority, { loader as priorityLoader } from "./routes/Priority.jsx";
 
 const router = createBrowserRouter([
     {
@@ -26,6 +27,11 @@ const router = createBrowserRouter([
                 path: "/category/:id",
                 element: <Category />,
                 loader: categoryLoader,
+            },
+            {
+                path: "/priority/:id",
+                element: <Priority />,
+                loader: priorityLoader,
             },
             {
                 path: "user/:id",
