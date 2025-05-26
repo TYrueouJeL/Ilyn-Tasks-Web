@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
-import React, {StrictMode} from "react";
+import React, {StrictMode, useState} from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
@@ -8,6 +8,7 @@ import Task, { loader as taskLoader } from "./routes/Task.jsx";
 import Category, { loader as categoryLoader } from "./routes/Category.jsx";
 import User, { loader as userLoader } from "./routes/User.jsx";
 import Priority, { loader as priorityLoader } from "./routes/Priority.jsx";
+import TaskList from "./components/task/TaskList.jsx";
 
 const router = createBrowserRouter([
     {
