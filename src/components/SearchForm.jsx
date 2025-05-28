@@ -4,7 +4,7 @@ export default function SearchForm({ search, onSearch, placeholderContent, onSub
     }
 
     return (
-        <form className={"mb-4"} onSubmit={onSubmit || ((e) => e.preventDefault())}>
+        <form onSubmit={onSubmit || ((e) => e.preventDefault())}>
             <input
                 type="text"
                 name={searchChamp}

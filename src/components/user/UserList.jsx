@@ -22,13 +22,17 @@ export default function UserList({users}) {
             <div className="flex items-center justify-between mb-4">
                 <h1 className={"title"}>Liste des utilisateurs</h1>
 
-                <SearchForm
-                    search={search}
-                    onSearch={formData => setSearch(formData)}
-                    placeholderContent="utilisateurs"
-                    onSubmit={handleFormSubmit}
-                    searchChamp="username"
-                />
+                <div className={"flex items-center gap-4"}>
+                    <SearchForm
+                        search={search}
+                        onSearch={formData => setSearch(formData)}
+                        placeholderContent="utilisateurs"
+                        onSubmit={handleFormSubmit}
+                        searchChamp="username"
+                    />
+
+                    <button className={"list-button"}><a href={"/user/create"}>Ajouter</a></button>
+                </div>
             </div>
 
             <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 my-4 ml-2 mr-2">

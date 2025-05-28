@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
-import React, {StrictMode, useState} from "react";
+import React, {StrictMode} from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
@@ -8,7 +8,7 @@ import Task, { loader as taskLoader } from "./routes/Task.jsx";
 import Category, { loader as categoryLoader } from "./routes/Category.jsx";
 import User, { loader as userLoader } from "./routes/User.jsx";
 import Priority, { loader as priorityLoader } from "./routes/Priority.jsx";
-import TaskList from "./components/task/TaskList.jsx";
+import UserCreate from "./routes/UserCreate.jsx";
 
 const router = createBrowserRouter([
     {
@@ -20,24 +20,48 @@ const router = createBrowserRouter([
                 element: <Home />,
             },
             {
-                path: "/task/:id",
-                element: <Task />,
-                loader: taskLoader,
+                path: "task",
+                children: [
+                    {
+                        path: ":id",
+                        element: <Task />,
+                        loader: taskLoader,
+                    },
+                ]
             },
             {
-                path: "/category/:id",
-                element: <Category />,
-                loader: categoryLoader,
+                path: "category",
+                children: [
+                    {
+                        path: ":id",
+                        element: <Category />,
+                        loader: categoryLoader,
+                    }
+                ]
             },
             {
-                path: "/priority/:id",
-                element: <Priority />,
-                loader: priorityLoader,
+                path: "priority",
+                children: [
+                    {
+                        path: ":id",
+                        element: <Priority />,
+                        loader: priorityLoader,
+                    }
+                ]
             },
             {
-                path: "user/:id",
-                element: <User />,
-                loader: userLoader,
+                path: "user",
+                children: [
+                    {
+                        path: ":id",
+                        element: <User />,
+                        loader: userLoader,
+                    },
+                    {
+                        path: "create",
+                        element: <UserCreate />,
+                    }
+                ]
             }
         ]
     },
