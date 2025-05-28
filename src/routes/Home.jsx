@@ -43,6 +43,7 @@ export default function Home() {
     return (
         <>
             <h1>Bienvenue !</h1>
+
             <TaskList tasks={tasks} />
             <CategoryList categories={categories} />
             <PriorityList priorities={priorities} />

@@ -10,6 +10,7 @@ import User, { loader as userLoader } from "./routes/User.jsx";
 import Priority, { loader as priorityLoader } from "./routes/Priority.jsx";
 import UserCreate from "./routes/UserCreate.jsx";
 import UserDelete, { loader as userDeleteLoader } from "./routes/UserDelete.jsx";
+import UserEdit, { loader as userEditLoader } from "./routes/UserEdit.jsx";
 
 const router = createBrowserRouter([
     {
@@ -66,6 +67,11 @@ const router = createBrowserRouter([
                         path: "delete/:id",
                         element: <UserDelete />,
                         loader: userDeleteLoader,
+                    },
+                    {
+                        path: "edit/:id",
+                        element: <UserEdit />,
+                        loader: userEditLoader,
                     }
                 ]
             }
