@@ -9,6 +9,7 @@ import Category, { loader as categoryLoader } from "./routes/Category.jsx";
 import User, { loader as userLoader } from "./routes/User.jsx";
 import Priority, { loader as priorityLoader } from "./routes/Priority.jsx";
 import UserCreate from "./routes/UserCreate.jsx";
+import UserDelete, { loader as userDeleteLoader } from "./routes/UserDelete.jsx";
 
 const router = createBrowserRouter([
     {
@@ -60,6 +61,11 @@ const router = createBrowserRouter([
                     {
                         path: "create",
                         element: <UserCreate />,
+                    },
+                    {
+                        path: "delete/:id",
+                        element: <UserDelete />,
+                        loader: userDeleteLoader,
                     }
                 ]
             }

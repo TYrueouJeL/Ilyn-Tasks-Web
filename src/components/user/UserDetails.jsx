@@ -14,7 +14,11 @@ export default function UserDetails({ user }) {
                 </div>
             </article>
 
-            <button className={"navigation-button"}><a href={"/"}>Retour</a></button>
+            <div className="flex flex-row gap-4">
+                <button className={"navigation-button"}><a href={"/"}>Retour</a></button>
+                <button className={"delete-button"}><a href={`/user/delete/${user.id}`}>Supprimer</a></button>
+                <button className={"edit-button"}><a href={`/user/edit/${user.id}`}>Modifier</a></button>
+            </div>
         </>
     );
 }
