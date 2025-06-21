@@ -11,6 +11,7 @@ import Priority, { loader as priorityLoader } from "./routes/Priority.jsx";
 import UserCreate from "./routes/UserCreate.jsx";
 import UserDelete, { loader as userDeleteLoader } from "./routes/UserDelete.jsx";
 import UserEdit, { loader as userEditLoader } from "./routes/UserEdit.jsx";
+import Project, { loader as projectLoader } from "./routes/Project.jsx";
 
 const router = createBrowserRouter([
     {
@@ -28,6 +29,16 @@ const router = createBrowserRouter([
                         path: ":id",
                         element: <Task />,
                         loader: taskLoader,
+                    },
+                ]
+            },
+            {
+                path: "project",
+                children: [
+                    {
+                        path: ":id",
+                        element: <Project />,
+                        loader: projectLoader,
                     },
                 ]
             },
