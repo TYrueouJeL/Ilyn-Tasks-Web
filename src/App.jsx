@@ -13,6 +13,7 @@ function App() {
                                     <ul className="flex gap-2">
                                         <li><Link to="/" className="text-white hover:text-orange-200 px-2">Accueil</Link></li>
                                         <li><Link to={"/"} className="text-white hover:text-orange-200 px-2">Tâches</Link></li>
+                                        <li><Link to={"/"} className="text-white hover:text-orange-200 px-2">Projets</Link></li>
                                         <li><Link to={"/"} className="text-white hover:text-orange-200 px-2">Priorités</Link></li>
                                         <li><Link to={"/"} className="text-white hover:text-orange-200 px-2">Catégories</Link></li>
                                         <li><Link to={"/"} className="text-white hover:text-orange-200 px-2">Utilisateurs</Link></li>
