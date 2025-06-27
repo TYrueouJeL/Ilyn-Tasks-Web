@@ -5,6 +5,10 @@ import {useState} from "react";
 export default function TaskList({tasks}) {
     const [search, setSearch] = useState({ title: '' });
 
+    if (!tasks || tasks.length === 0) {
+        return <p className="text-gray-500">Aucune tâche trouvée.</p>;
+    }
+
     const filteredTasks = tasks.filter(task => {
         const title = task.title.toLowerCase();
         const searchTitle = search.title.toLowerCase();

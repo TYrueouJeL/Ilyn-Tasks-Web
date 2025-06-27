@@ -5,6 +5,10 @@ import {useState} from "react";
 export default function PriorityList({priorities}) {
     const [search, setSearch] = useState({ name: '' });
 
+    if (!priorities || priorities.length === 0) {
+        return <p className="text-gray-500">Aucune priorité trouvée.</p>;
+    }
+
     const filteredPriorities = priorities.filter(priority => {
         const name = priority.name.toLowerCase();
         const searchName = search.name.toLowerCase();

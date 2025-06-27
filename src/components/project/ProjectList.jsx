@@ -5,6 +5,10 @@ import { useState } from "react";
 export default function ProjectList({ projects }) {
     const [search, setSearch] = useState({ title: '' });
 
+    if (!projects || projects.length === 0) {
+        return <p className="text-gray-500">Aucun projet trouvé.</p>;
+    }
+
     const filteredProjects = projects.filter(project => {
         const title = project.title.toLowerCase();
         const searchTitle = search.title.toLowerCase();

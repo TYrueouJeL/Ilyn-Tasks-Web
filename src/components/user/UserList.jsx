@@ -5,6 +5,10 @@ import {useState} from "react";
 export default function UserList({users}) {
     const [search, setSearch] = useState({ username: '' });
 
+    if (!users || users.length === 0) {
+        return <p className="text-gray-500">Aucun utilisateur trouvé.</p>;
+    }
+
     const filteredUsers = users.filter(user => {
         const name = user.username.toLowerCase();
         const searchName = search.username.toLowerCase();

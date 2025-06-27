@@ -5,6 +5,10 @@ import { useState } from 'react';
 export default function CategoryList({categories}) {
     const [search, setSearch] = useState({name: ''});
 
+    if (!categories || categories.length === 0) {
+        return <p className="text-gray-500">Aucune catégorie trouvée.</p>;
+    }
+
     const filteredCategories = categories.filter(category => {
         const name = category.name.toLowerCase();
         const searchName = search.name.toLowerCase();
