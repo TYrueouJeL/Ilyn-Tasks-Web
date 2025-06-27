@@ -5,7 +5,7 @@ export default function ProjectDetails({ project, tasks }) {
         return <div>Projet non trouvé</div>
     }
 
-    if (!tasks || tasks.length === 0) {
+    if (!Array.isArray(tasks) || tasks.length === 0) {
         return <div>Aucune tâche trouvée pour ce projet</div>
     }
 
@@ -46,10 +46,10 @@ export default function ProjectDetails({ project, tasks }) {
                 </article>
             </div>
 
-            <h2 className="subtitle mt-6">Tâches du projet</h2>
-            <div className="mt-4">
-                <TaskList tasks={tasks}/>
-            </div>
+            <section className="mt-6">
+                <h3 className="title">Tâches du projet</h3>
+                <TaskList tasks={tasks} />
+            </section>
         </>
     );
 }

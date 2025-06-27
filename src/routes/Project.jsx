@@ -7,8 +7,15 @@ export async function loader({ params }) {
     const projectResponse = await fetch(`${ApiUrl}/api/projects/${params.id}`);
     const project = await projectResponse.json();
 
-    const tasksResponse = await fetch(`${ApiUrl}${project.tasks}`);
-    const tasks = await tasksResponse.json();
+    const taskPromises = project.tasks.map(taskUrl =>
+        fetch(`${ApiUrl}${taskUrl}`).then(response => response.json())
+    );
+
+    const tasksArray = await Promise.all(taskPromises);
+
+    const tasks = tasksArray.flat();
+
+    console.log(tasks)
 
     return { project, tasks };
 }
